@@ -1,0 +1,19 @@
+{
+    "relatorio": {
+        "Responsavel": "glaucia",
+        "Status_task": "pendente"
+    },
+    "reuniao_mensal": {
+        "Responsavel": "Glaucia",
+        "Status_task": "concluÃ­da"
+    },
+    "reuniÃ£o": {
+        "Responsavel": "glaucia",
+        "Status_task": "concluido",
+        "prioridade": "alta"
+    },
+    "revenda": {
+        "Responsavel": "jose",
+        "Status_task": "em andamento"
+    }
+}

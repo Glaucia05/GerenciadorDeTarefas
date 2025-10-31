@@ -1,6 +1,5 @@
 import json
 
-
 try:
     with open('arq.json', 'r') as arq:
         dados_do_arquivo = json.load(arq) # Lê o conteúdo do JSON
@@ -49,23 +48,25 @@ def menu():
         elif edit=='4':
             print_list(task_list)
         else:
-            print('Entrada inválida! Tente novamente.')
+            print('Entrada inválida! Tente novamente.\n')
             menu()
 
     #adiciona a tarefa a ser realizada
 def add_task():
         global task_list
-        task_name=input('Digite a tarefa:')
+        task_name=input('Digite a tarefa:').strip().lower()
         task_task={}
-        task_task['Responsavel']=input('Digite o responsável pela tarefa:')
-        task_task['Status_task']=input('Digite o status da tarefa tarefa:')
+        task_task['Responsavel']=input('Digite o responsável pela tarefa:').strip().lower()
+        task_task['Status_task']=input('Digite o status da tarefa tarefa:').strip().lower()
         i=0
+
+        # No laço de repetição defini que a quantidade maxíma de detalhes permitidas.
         while i<10:
-            details=input('Deseja adicionar algum detalhe como hora, prioridade...? ')
+            details=input('Deseja adicionar detalhe? \n ').strip().lower()
             print('\n \n \n \n')
             if details == 'sim':
-                name_detail=input('Digite o nome do detalhe: ')
-                value_detail=input('Digite o valor do detalhe: ')
+                name_detail=input('Digite o nome do detalhe: ').strip().lower()
+                value_detail=input('Digite o valor do detalhe: ').strip().lower()
                 task_task.update({name_detail:value_detail})
                 i=i+1
             else:
@@ -77,20 +78,20 @@ def add_task():
 
     #muda o status da tarefa
 def change_status_task(task_list):
-        task_change=input('Digite a tarefa que deseja modificar: ')
+        task_change=input('Digite a tarefa que deseja modificar: ').strip().lower()
         if task_change in task_list:
             value_modifc=task_list[task_change]
-            value_modifc["Status_task"]=input("Digite o novo status da tarefa: ")
+            value_modifc["Status_task"]=input("Digite o novo status da tarefa: ").strip().lower()
             salvar(task_list)
             return task_list
 
 
     #muda o responsavel pela tarefa
 def change_res_task(task_list):
-        task_change=input('Digite a tarefa que deseja modificar:')
+        task_change=input('Digite a tarefa que deseja modificar:').strip().lower()
         if task_change in task_list:
             value_modifc=task_list[task_change]
-            value_modifc["Responsavel"]=input("Digite o novo responsável tarefa: ")
+            value_modifc["Responsavel"]=input("Digite o novo responsável tarefa: ").strip().lower()
             salvar(task_list)
             return task_list
 
